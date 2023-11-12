@@ -176,10 +176,10 @@ function flipCoin() {
   }, 3000);
 }
 
-function toggleCrown(buttonId) {
+/* function toggleCrown(buttonId) {
   let button = document.getElementById(buttonId);
   button.classList.toggle('colored');
 }
 
-
+*/
 
