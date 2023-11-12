@@ -1,0 +1,20 @@
+canvas {
+  background-color: rgb(0, 0, 0);
+  box-shadow: black 20px 10px 50px;
+}
+body {
+  font: normal 14pt Arial;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fa968c;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom, #7e2e27a2, transparent);
+  border-radius: 20px;
+}

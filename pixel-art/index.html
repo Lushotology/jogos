@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    
+    <title>Pixel Art Generator</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="options">
+        <div class="opt-wrapper">
+          <div class="slider">
+            <label for="width-range"><abbr title="Largura">Grid Width</abbr></label>
+            <input type="range" id="width-range" min="1" max="35" />
+            <span id="width-value">00</span>
+          </div>
+          <div class="slider">
+            <label for="height-range"><abbr title="Altura">Grid Height</abbr></label>
+            <input type="range" id="height-range" min="1" max="35" />
+            <span id="height-value">00</span>
+          </div>
+        </div>
+
+        <div class="opt-wrapper">
+          <button id="submit-grid"><abbr title="Cria Grade">Create Grid</abbr></button>
+          <button id="clear-grid"><abbr title="Apaga Grade">Clear Grid</abbr></button>
+          <input type="color" id="color-input" />
+          <button id="erase-btn"><abbr title="Apagador">Erase</abbr></button>
+          <button id="paint-btn"><abbr title="Pintar">Paint</abbr></button>
+        </div>
+      </div>
+      <div class="container"></div>
+    </div>
+
+    <script src="index.js"></script>
+
+    <footer>
+        Criado por Rafael Carvalho inspirado por @ASMRPROG
+
+    </footer>
+  </body>
+</html>

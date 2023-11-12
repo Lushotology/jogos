@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+:root {
+  /*
+    #FAC182
+    #8EFAA1
+    #FA9475
+    #5CCEFA
+    #FA6986    
+
+  */
+
+
+  --cor0: #fac182;
+  --cor1: #8efaa1;
+  --cor2: #fa9475;
+  --cor3: #5ccefa;
+  --cor4: #fa6986;
+  --cor5: #7a1a2d;
+  --cor6:#7A8AE6
+  
+}
+
+body {
+  background-color: var(--cor0);
+}
+
+body abbr {
+  /*única forma que deu certo tirar os pontinhos do abbr*/
+  text-decoration: none !important;
+}
+
+.wrapper {
+  background-color: var(--cor6);
+  width: 80vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 40px 20px;
+  border-radius: 8px;
+
+
+}
+
+
+
+.label {
+  display: block;
+}
+
+span {
+  position: relative;
+  font-size: 22px;
+  bottom: -1px;
+}
+
+.opt-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+button {
+  background-color: var(--cor4);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+}
+
+input[type="color"] {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 70px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 8px;
+  border: 4px solid black;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border-radius: 8px;
+  border: 4px solid black;
+}
+
+.gridCol {
+  height: 1em;
+  width: 1em;
+  border: 1px solid #ddd;
+}
+
+.gridRow {
+  display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+  .gridCol {
+    height: 0.8em;
+    width: 0.8em;
+  }
+}
+
+footer {
+    background-color: var(--cor5);
+    color: var(--cor3);
+    text-align: center;
+    font-size: 0.8em;
+    padding: 3px;
+    
+
+  }
