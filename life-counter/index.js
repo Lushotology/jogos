@@ -12,7 +12,7 @@ function reset() {
 
 reset();
 
-//player 1
+//*player 1
 
 let p1m = document.getElementById("p1m");
 p1m.onclick = function () {
@@ -31,7 +31,7 @@ p1p.onclick = function () {
   p1sElement.innerText = updated;
 };
 
-//player 2
+//*player 2
 
 let p2m = document.getElementById("p2m");
 p2m.onclick = function () {
@@ -51,7 +51,7 @@ p2p.onclick = function () {
   p2sElement.innerText = updated;
 };
 
-//player 3
+//*player 3
 
 let p3m = document.getElementById("p3m");
 p3m.onclick = function () {
@@ -71,7 +71,7 @@ p3p.onclick = function () {
   p3sElement.innerText = updated;
 };
 
-//player 4
+//*player 4
 
 let p4m = document.getElementById("p4m");
 p4m.onclick = function () {
@@ -99,7 +99,7 @@ resetButton.onclick = function () {
 document.getElementById("chooseWinner").addEventListener("click", chooseWinner);
 
 function chooseWinner() {
-  // Array com os IDs dos jogadores
+  // *Array com os IDs dos jogadores
   const playerIds = ["p1", "p2", "p3", "p4"];
 
   // Escolhe aleatoriamente um jogador
@@ -144,7 +144,6 @@ function rollDice() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ... Seu código JavaScript existente ...
 
   // Adiciona um evento de clique ao botão "Cara ou Coroa"
   document.getElementById("flipCoinButton").addEventListener("click", flipCoin);
