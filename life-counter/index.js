@@ -170,7 +170,7 @@ function flipCoin() {
   // Adiciona a caixa de resultado ao corpo do documento
   document.body.appendChild(resultBox);
 
-  // Remove a caixa de resultado após um período de tempo (3 segundos no exemplo)
+  // Remove a caixa de resultado após um período de tempo
   setTimeout(() => {
     resultBox.remove();
   }, 3000);
