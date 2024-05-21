@@ -12,6 +12,7 @@ function reset() {
 
 reset();
 
+//** NOTA: DEIXEI PADRÃO 4 PLAYERS */
 //*player 1
 
 let p1m = document.getElementById("p1m");
@@ -106,14 +107,14 @@ function chooseWinner() {
   const randomPlayerId =
     playerIds[Math.floor(Math.random() * playerIds.length)];
 
-  // Exibe a mensagem WINNER abaixo do jogador escolhido
+  // Exibe a mensagem WINNER abaixo do jogador escolhido //! tem um bug aos clicar diversas vezes, ele vai empilhar o WINNER
   const winnerElement = document.getElementById(randomPlayerId);
   const winnerMessage = document.createElement("div");
   winnerMessage.classList.add("winner-message");
   winnerMessage.textContent = "WINNER";
   winnerElement.appendChild(winnerMessage);
 
-  // Define um timeout para remover a mensagem após 6 segundos
+  // Define um timeout para remover a mensagem após x segundos
   setTimeout(() => {
     winnerMessage.remove();
   }, 4000);
@@ -137,7 +138,7 @@ function rollDice() {
   // Adiciona a caixa de resultado ao corpo do documento
   document.body.appendChild(resultBox);
 
-  // Remove a caixa de resultado após um período de tempo (por exemplo, 3 segundos)
+  // Remove a caixa de resultado após um período de tempo
   setTimeout(() => {
     resultBox.remove();
   }, 3000);
@@ -181,4 +182,13 @@ function toggleCrown(buttonId) {
 }
 
 
+/*Não sei pq o brn não vai duo com o Carlão, tipo assim ele tem muita mira se pa que mais forte que o less de kj
 
+
+${sender}: ${random.pick 'Astra' 'Breach' 'Brimstone''Chamber' 'Clove' 'Cypher''Deadlock''Fade''Gekko''Harbor' 'Iso' 'Jett''KAY/O' 'Killjoy''Neon''Omen''Phoenix''Raze' 'Reyna' 'Sage' 'Skye' 'Sova''Viper''Yoru'}!
+
+
+!cmd edit !randomcarlao ${random.pick '"Estou fazendo amor com o suco e com elas"' '"Corre Carlão, tem uma loira na tela!"	' '"Por isso eu engordei quando namorava"	' '"Tô sombrio"	' '"O homi do tapa ex"	' '"Famoso hulk tchola"	' '"Fala que é fiel e romantico, mas dá ideia em todas"' '"Queria tá dentro de uma piranha"	' '"Eu faria de 4"	' ' "Mulher no meu turno não passa batido"'}
+
+
+*/
