@@ -97,6 +97,8 @@ resetButton.onclick = function () {
   reset();
 };
 
+
+
 document.getElementById("chooseWinner").addEventListener("click", chooseWinner);
 
 function chooseWinner() {
