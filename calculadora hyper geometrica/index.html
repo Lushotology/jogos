@@ -7,6 +7,36 @@
     <title>Calculadora Hiper Geometrica</title>
 </head>
 <body>
+    <h1>Calculadora Hipergeométrica</h1>
+
+  <div class="campo">
+    <label for="N">Tamanho da População:</label>
+    <input type="number" id="N">
+    <div class="explicacao">Tamanho/número de cartas em seu deck (N).</div>
+  </div>
+
+  <div class="campo">
+    <label for="n">Tamanho da Amostra:</label>
+    <input type="number" id="n">
+    <div class="explicacao">Número de cartas que você comprou. EX.: 7 se for mão inicial (MTG) (n).</div>
+  </div>
+
+  <div class="campo">
+    <label for="K">Sucesso na População:</label>
+    <input type="number" id="K">
+    <div class="explicacao">Número de cartas do tipo que estão no deck (K).</div>
+  </div>
+
+  <div class="campo">
+    <label for="k">Sucesso na Amostra:</label>
+    <input type="number" id="k">
+    <div class="explicacao">Quantidade de cartas que quer comprar (k).</div>
+  </div>
+
+  <button onclick="calcular()">Calcular</button>
+
+  <div id="resultado"></div>
+
     
 
 
