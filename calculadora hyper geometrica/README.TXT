@@ -1,4 +1,4 @@
-Life Counter for Commander
+Calculadora Hiper Geométrica
 
 
 
