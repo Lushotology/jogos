@@ -80,7 +80,6 @@ button {
   box-shadow: 0 4px 8px rgba(20, 20, 20, 0.4);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-  animation: fadeInUp 1s ease-out;
 }
 
 button:hover {
