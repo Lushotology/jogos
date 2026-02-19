@@ -220,7 +220,7 @@ i#chooseWinner {
   75% {
     opacity: 0;
   }
-}
+} 
 
 @media screen and (max-width: 765px) {
   /* Estilo específico para telas menores que 768px (tablets e smartphones) */

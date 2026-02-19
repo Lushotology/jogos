@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
 
-        // Highlight the new current player
+        // Highlight the new current player. not working at moment 
         document.querySelector(`[data-player-id="${players[currentPlayerIndex].id}"]`).classList.add('active-player');
 
         alert(`É a vez do ${players[currentPlayerIndex].name}`);
