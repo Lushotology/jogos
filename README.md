@@ -10,5 +10,5 @@ Games/Jogos
 
 <a href="https://lushotology.github.io/jogos/life-counter" target="_blank">Life Counter MTG</a>
 
-<a href="https://lushotology.github.io/jogos/HiperCalculadora"  target="_blank">calculadora hyper geometrica</a>
+<a href="https://lushotology.github.io/jogos/HiperCalculadora"  target="_blank">Calculadora Hiper Geometrica</a>
 
