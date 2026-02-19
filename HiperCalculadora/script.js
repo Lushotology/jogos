@@ -21,7 +21,7 @@ function calcular() {
   const k = parseInt(document.getElementById("k").value);
 
   if (isNaN(N) || isNaN(n) || isNaN(K) || isNaN(k)) {
-    document.getElementById("resultado").innerText = "Erro, preencha todos os campos.";
+    document.getElementById("resultado").innerText = "Erro, preencha todos os campos!.";
     return;
   }
 
@@ -48,8 +48,8 @@ function calcular() {
   const probZeroPercent = (probZero * 100).toFixed(2);
 
   document.getElementById("resultado").innerHTML =
-    "<i>Probabilidade de comprar " + k + " ou mais cartas  = " + probComplementarPercent + "%</i><br>" + //(X ≥ " + k + ")
-    "Probabilidade de comprar " + k + " ou menos cartas  = " + probAcumuladaPercent + "%<br>" + // (X ≤ " + k + ")
-    "Probabilidade de comprar exatamente " + k + " cartas  = " + probPercent + "%<br>" + // (X = " + k + ")
-    "Probabilidade de não comprar nenhuma carta desejada  = " + probZeroPercent + "%<br>"; // (X = 0)
+    "<i>Probabilidade de ter " + k + " ou mais das cartas desejadas  = " + probComplementarPercent + "%</i><br>" + //(X ≥ " + k + ")
+    "Probabilidade de ter " + k + " ou menos das cartas desejadas  = " + probAcumuladaPercent + "%<br>" + // (X ≤ " + k + ")
+    "Probabilidade de ter exatamente " + k + " das cartas desejadas  = " + probPercent + "%<br>" + // (X = " + k + ")
+    "Probabilidade de não ter nenhuma da carta desejada  = " + probZeroPercent + "%<br>"; // (X = 0)
 }
