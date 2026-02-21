@@ -11,7 +11,6 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  
 }
 
 body {
@@ -24,50 +23,62 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: -0.3vw;
   justify-content: center;
   align-items: stretch;
   height: 80vh;
   margin: 0;
   overflow: visible;
-
 }
 
+/* ===== MENU LATERAL ===== */
 nav.menu-lateral {
-  
-  width: 70px;
-  height: 1%;
+  width: 70px;              /* largura inicial */
+  height: 100vh;
   background-color: #202020;
-  padding: 3px 0px 20px 0.5%;
+  padding: 10px 0;
   box-shadow: 3px 0 0 #ff0077;
-  position: fixed; /* serve pra fixar o menu e evitar barra de rolagem*/
+  position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden; /*serve pra esconder as letras*/
-  transition: 0.3s;
+  overflow: hidden;
+  transition: width 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
 }
 
-nav.menu-lateral:hover {
-  width: 300px;
-  height: auto;
+/* Desktop: expande no hover */
+@media (hover: hover) {
+  nav.menu-lateral:hover {
+    width: 250px;
+  }
+}
+
+/* Mobile: fechado por padrão */
+nav.menu-lateral.closed {
+  transform: translateX(-100%);
+}
+
+/* Mobile: aberto */
+nav.menu-lateral.open {
+  width: 250px;
+  transform: translateX(0);
 }
 
 .btn-expandir {
   width: 100%;
-  padding-left: 0px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .btn-expandir > i {
   color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0;
-
+  font-size: 28px;
 }
 
 ul {
-  height: 100%;
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 ul li.item-menu {
@@ -79,23 +90,20 @@ ul li.item-menu:hover {
 }
 
 ul li.item-menu a {
-  color: rgb(255, 255, 255);
+  color: white;
   text-decoration: none;
-  font-size: 20px;
-  padding: 0px 2%;
+  font-size: 18px;
+  padding: 10px;
   display: flex;
-  margin-bottom: 20px;
-  line-height: 40px; /* serve pra alinhas o texto com os ícones*/
-}
-
-ul li.item-menu a .txt-link {
-  margin-left: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
 ul li.item-menu a .icon > i {
-  font-size: 25px;
-  margin-left: 0px;
+  font-size: 22px;
 }
+
+/* ===== PLAYERS ===== */
 h1 {
   line-height: 50%;
   font-size: 13vmin;
@@ -110,16 +118,11 @@ div {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centralizar os itens dentro da div */
-  justify-content: center; /* Centralizar verticalmente */
-  margin: 0; /* Remover margem que pode estar causando espaçamento */
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   background-size: cover;
 }
-
-/*
-  div:active {
-    transform: scale(1.1);
-  } */
 
 div#p1 {
   background-color: var(--cor00);
@@ -129,14 +132,11 @@ div#p1 {
 div#p2 {
   background-color: var(--cor01);
   color: var(--cor02);
-  
-
 }
 
 div#p3 {
   background-color: var(--cor03);
   color: var(--cor00);
-
 }
 
 div#p4 {
@@ -144,25 +144,16 @@ div#p4 {
   color: var(--cor01);
 }
 
-.button-container {
-  display: inline-table; /* Para fazer com que os botões fiquem lado a lado */
-  justify-content: center; /* Centraliza os botões horizontalmente */
-  align-items: center; /* Centraliza os botões verticalmente */
-  gap: 1px; /* Adiciona um espaçamento entre os botões */
-}
-
-
-
+/* ===== BOTÕES ===== */
 button {
-  
   width: 100%;
   border: none;
   outline: none;
   background-color: transparent;
-  color: rgb(255, 255, 255);
-  padding: 0px;
+  color: white;
+  padding: 0;
   border-radius: 10px;
-  margin: 0px;
+  margin: 0;
   touch-action: manipulation;
   text-align: center;
 }
@@ -175,28 +166,33 @@ button.life-increment {
   font-size: 5vw;
 }
 
-i#reset {
-  background-color: var(--cor04);
-  border-radius: 5px;
-  padding: 5px;
-  height: auto;
-  width: auto;
-  margin: 0;
-  max-width: 200px;
-  font-size: 1em;
+/* ===== COROA ===== */
+#p1c, #p2c, #p3c, #p4c {
+  width: 40px;
+  height: 40px;
 }
 
-i#chooseWinner {
-  background-color: var(--cor04);
-  border-radius: 5px;
-  font-size: 1em;
-  padding: 5px;
-  height: auto;
-  width: auto;
-  margin: 0;
-  max-width: 200px;
+.crown-icon {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  color: rgba(255, 255, 255, 0.507);
+  font-size: 30px;
 }
 
+.crown-icon.colored {
+  color: #ff0077;
+  opacity: 1;
+}
+
+.crown-icon:hover {
+  opacity: 1;
+}
+
+/* ===== WINNER ===== */
 .winner-message {
   color: white;
   font-size: 1em;
@@ -205,44 +201,15 @@ i#chooseWinner {
   border-radius: 10px;
   width: auto;
   height: auto;
-
   animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 @keyframes myAnim {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-
-  25%,
-  75% {
-    opacity: 0;
-  }
-} 
-
-@media screen and (max-width: 765px) {
-  /* Estilo específico para telas menores que 768px (tablets e smartphones) */
-  body {
-    grid-template-columns: 2; /* Uma coluna para dispositivos móveis */
-  }
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 
-@media (orientation: landscape) {
-  body {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 765px) {
-  .button-container {
-    flex-direction: column; /* Empilha os botões verticalmente em telas menores */
-  }
-}
-
-
+/* ===== RESULT BOX ===== */
 .result-box {
   position: fixed;
   top: 50%;
@@ -257,42 +224,18 @@ i#chooseWinner {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  z-index: 1000; /* Garante que a caixa de resultado apareça acima de outros elementos */
+  z-index: 1000;
 }
+
 .result-box i {
   font-size: 24px;
   margin-top: 5px;
 }
 
-#p1c,#p2c,#p3c,#p4c  {
-  width: 40px;
-  height: 40px;
-} 
-.crown-icon {
-  position: relative; /* Mudança de absolute para relative */
-  background-color: transparent;
-  border: none;
-  outline: none;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-  color: rgba(255, 255, 255, 0.507);
-  font-size: 30px;
+/* ===== RESPONSIVIDADE ===== */
+@media screen and (max-width: 765px) {
+  body {
+    grid-template-columns: 1fr; /* uma coluna em telas pequenas */
+    grid-template-rows: repeat(4, 1fr);
+  }
 }
-
-.crown-icon.colored {
-  color: #ff0077; /* Coroa colorida (amarela) */
-  opacity: 1;
-}
-
-.crown-icon:hover {
-  opacity: 1;
-}
-
-/*
-.no-scroll {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-}
-*/
