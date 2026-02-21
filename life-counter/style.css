@@ -104,7 +104,7 @@ ul li.item-menu a .icon > i {
 }
 
 /* ===== PLAYERS ===== */
-h1 {
+p {
   line-height: 50%;
   font-size: 13vmin;
 }
@@ -127,6 +127,7 @@ div {
 div#p1 {
   background-color: var(--cor00);
   color: var(--cor03);
+  transform: rotate(180deg);
 }
 
 div#p2 {
@@ -137,6 +138,7 @@ div#p2 {
 div#p3 {
   background-color: var(--cor03);
   color: var(--cor00);
+  transform: rotate(180deg);
 }
 
 div#p4 {
@@ -167,7 +169,7 @@ button.life-increment {
 }
 
 /* ===== COROA ===== */
-#p1c, #p2c, #p3c, #p4c {
+.crown-icon img {
   width: 40px;
   height: 40px;
 }
