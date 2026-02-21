@@ -10,7 +10,20 @@ reset();
 function updateLife(playerId, change) {
   let element = document.getElementById(playerId + "s");
   let value = parseInt(element.innerText);
-  element.innerText = value + change;
+  let newValue = Math.max(0, value + change); // nunca abaixo de 0
+  element.innerText = newValue;
+
+  // muda cor conforme ganho ou perda
+  if (change > 0) {
+    element.style.color = "lime";   // verde ao ganhar
+  } else {
+    element.style.color = "red";    // vermelho ao perder
+  }
+
+  // volta para branco depois de 300ms
+  setTimeout(() => {
+    element.style.color = "white";
+  }, 300);
 }
 
 // Configura botões de + e - para todos os jogadores
@@ -19,7 +32,7 @@ function updateLife(playerId, change) {
   document.getElementById(id + "m").onclick = () => updateLife(id, -1);
 });
 
-// Botão Reset (ativo)
+// ===== Botão Reset =====
 document.getElementById("resetBtn").onclick = reset;
 
 // ===== Escolher vencedor =====
@@ -30,53 +43,20 @@ function chooseWinner() {
   const randomPlayerId = playerIds[Math.floor(Math.random() * playerIds.length)];
   const winnerElement = document.getElementById(randomPlayerId);
 
-  // Remove mensagens antigas antes de criar uma nova
-  winnerElement.querySelectorAll(".winner-message").forEach(msg => msg.remove());
+  // Remove mensagens antigas de TODOS os jogadores
+  document.querySelectorAll(".winner-message").forEach(msg => msg.remove());
 
+  // Cria a nova mensagem
   const winnerMessage = document.createElement("div");
   winnerMessage.classList.add("winner-message");
   winnerMessage.textContent = "WINNER";
   winnerElement.appendChild(winnerMessage);
 
+  // Remove após 4 segundos
   setTimeout(() => {
     winnerMessage.remove();
   }, 4000);
 }
-
-// ===== Rolagem de dado =====
-// document.getElementById("diceBtn").addEventListener("click", rollDice);
-
-// function rollDice() {
-//   const randomNumber = Math.floor(Math.random() * 6) + 1;
-//   const resultBox = document.createElement("div");
-//   resultBox.classList.add("result-box");
-//   resultBox.textContent = randomNumber;
-//   document.body.appendChild(resultBox);
-
-//   setTimeout(() => {
-//     resultBox.remove();
-//   }, 3000);
-// }
-
-// ===== Cara ou coroa =====
-// document.getElementById("coinBtn").addEventListener("click", flipCoin);
-
-// function flipCoin() {
-//   const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
-//   const resultBox = document.createElement("div");
-//   resultBox.classList.add("result-box");
-//   resultBox.textContent = coinResult;
-
-//   const icon = document.createElement("i");
-//   icon.classList.add("bi", coinResult === "Head" ? "bi-emoji-smile" : "bi-emoji-frown");
-//   resultBox.appendChild(icon);
-
-//   document.body.appendChild(resultBox);
-
-//   setTimeout(() => {
-//     resultBox.remove();
-//   }, 3000);
-// }
 
 // ===== Coroa de monarca (somente um ativo) =====
 function toggleCrown(buttonId) {
