@@ -3,7 +3,6 @@ canvas {
   box-shadow: black 20px 10px 50px;
 }
 
-
 body {
   font: normal 14pt Arial;
   margin: 0px;
@@ -28,6 +27,11 @@ h1 {
   align-items: center;
 }
 
+#controls .row {
+  display: flex;
+  justify-content: center;
+}
+
 #controls button {
   font-size: 24px;
   padding: 15px;
@@ -47,4 +51,3 @@ h1 {
   background-color: #2e7d32;
   color: white;
 }
-

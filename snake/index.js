@@ -45,12 +45,8 @@ function drawGame() {
   checkAppleColisao();
   drawScore();
 
-  if (score > 7) {
-    speed = 11;
-  }
-  if (score > 14) {
-    speed = 15;
-  }
+  if (score > 7) speed = 11;
+  if (score > 14) speed = 15;
 
   setTimeout(drawGame, 1000 / speed);
 }
@@ -58,16 +54,12 @@ function drawGame() {
 function isGameOver() {
   let gameOver = false;
 
-  if (yVelocidade === 0 && xVelocidade === 0) {
-    return false;
-  }
+  if (yVelocidade === 0 && xVelocidade === 0) return false;
 
-  // colisão com paredes
   if (headX < 0 || headX === tileCount || headY < 0 || headY === tileCount) {
     gameOver = true;
   }
 
-  // colisão com o próprio corpo
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
     if (part.x === headX && part.y === headY) {
@@ -125,8 +117,8 @@ function drawSnake() {
 }
 
 function changeSnakePosition() {
-  headX = headX + xVelocidade;
-  headY = headY + yVelocidade;
+  headX += xVelocidade;
+  headY += yVelocidade;
 }
 
 function drawApple() {
@@ -148,26 +140,10 @@ function checkAppleColisao() {
 document.body.addEventListener("keydown", keyDown);
 
 function keyDown(event) {
-  if (event.keyCode == 38) {
-    if (yVelocidade == 1) return;
-    yVelocidade = -1;
-    xVelocidade = 0;
-  }
-  if (event.keyCode == 40) {
-    if (yVelocidade == -1) return;
-    yVelocidade = 1;
-    xVelocidade = 0;
-  }
-  if (event.keyCode == 37) {
-    if (xVelocidade == 1) return;
-    yVelocidade = 0;
-    xVelocidade = -1;
-  }
-  if (event.keyCode == 39) {
-    if (xVelocidade == -1) return;
-    yVelocidade = 0;
-    xVelocidade = 1;
-  }
+  if (event.keyCode == 38) moveUp();
+  if (event.keyCode == 40) moveDown();
+  if (event.keyCode == 37) moveLeft();
+  if (event.keyCode == 39) moveRight();
 }
 
 // controles por botões (celular)
