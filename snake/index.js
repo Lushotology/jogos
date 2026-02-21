@@ -192,4 +192,27 @@ function keyDown(event) {
   }
 }
 
+function moveUp() {
+  if (yVelocidade === 1) return;
+  yVelocidade = -1;
+  xVelocidade = 0;
+}
+
+function moveDown() {
+  if (yVelocidade === -1) return;
+  yVelocidade = 1;
+  xVelocidade = 0;
+}
+
+function moveLeft() {
+  if (xVelocidade === 1) return;
+  yVelocidade = 0;
+  xVelocidade = -1;
+}
+
+function moveRight() {
+  if (xVelocidade === -1) return;
+  yVelocidade = 0;
+  xVelocidade = 1;
+}
 drawGame();
