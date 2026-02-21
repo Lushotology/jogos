@@ -60,12 +60,12 @@ div#p1 {
 div#p2 {
   background-color: var(--cor01);
   color: var(--cor02);
+  transform: rotate(180deg);
 }
 
 div#p3 {
   background-color: var(--cor03);
   color: var(--cor00);
-  transform: rotate(180deg);
 }
 
 div#p4 {
