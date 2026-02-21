@@ -1,5 +1,3 @@
-console.log("JS carregado com sucesso");
-
 // ===== Reset vidas =====
 function reset() {
   ["p1", "p2", "p3", "p4"].forEach(id => {
@@ -21,7 +19,7 @@ function updateLife(playerId, change) {
   document.getElementById(id + "m").onclick = () => updateLife(id, -1);
 });
 
-// Botão Reset
+// Botão Reset (ativo)
 document.getElementById("resetBtn").onclick = reset;
 
 // ===== Escolher vencedor =====
@@ -46,41 +44,39 @@ function chooseWinner() {
 }
 
 // ===== Rolagem de dado =====
-document.getElementById("diceBtn").addEventListener("click", rollDice);
+// document.getElementById("diceBtn").addEventListener("click", rollDice);
 
-function rollDice() {
-  console.log("Dice clicado"); // teste
-  const randomNumber = Math.floor(Math.random() * 6) + 1;
-  const resultBox = document.createElement("div");
-  resultBox.classList.add("result-box");
-  resultBox.textContent = randomNumber;
-  document.body.appendChild(resultBox);
+// function rollDice() {
+//   const randomNumber = Math.floor(Math.random() * 6) + 1;
+//   const resultBox = document.createElement("div");
+//   resultBox.classList.add("result-box");
+//   resultBox.textContent = randomNumber;
+//   document.body.appendChild(resultBox);
 
-  setTimeout(() => {
-    resultBox.remove();
-  }, 3000);
-}
+//   setTimeout(() => {
+//     resultBox.remove();
+//   }, 3000);
+// }
 
 // ===== Cara ou coroa =====
-document.getElementById("coinBtn").addEventListener("click", flipCoin);
+// document.getElementById("coinBtn").addEventListener("click", flipCoin);
 
-function flipCoin() {
-  console.log("Coin clicado"); // teste
-  const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
-  const resultBox = document.createElement("div");
-  resultBox.classList.add("result-box");
-  resultBox.textContent = coinResult;
+// function flipCoin() {
+//   const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
+//   const resultBox = document.createElement("div");
+//   resultBox.classList.add("result-box");
+//   resultBox.textContent = coinResult;
 
-  const icon = document.createElement("i");
-  icon.classList.add("bi", coinResult === "Head" ? "bi-emoji-smile" : "bi-emoji-frown");
-  resultBox.appendChild(icon);
+//   const icon = document.createElement("i");
+//   icon.classList.add("bi", coinResult === "Head" ? "bi-emoji-smile" : "bi-emoji-frown");
+//   resultBox.appendChild(icon);
 
-  document.body.appendChild(resultBox);
+//   document.body.appendChild(resultBox);
 
-  setTimeout(() => {
-    resultBox.remove();
-  }, 3000);
-}
+//   setTimeout(() => {
+//     resultBox.remove();
+//   }, 3000);
+// }
 
 // ===== Coroa de monarca (somente um ativo) =====
 function toggleCrown(buttonId) {
