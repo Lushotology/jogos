@@ -164,7 +164,7 @@ button.life-increment {
 
 /* ===== MENU CENTRAL ===== */
 .menu-central {
-  position: fixed;
+  position: fixed;          /* sai do fluxo do grid */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -174,8 +174,9 @@ button.life-increment {
   padding: 15px 25px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
-  z-index: 3000;
+  z-index: 4000;            /* acima dos jogadores */
 }
+
 
 .menu-central button {
   background-color: #ff0077;
