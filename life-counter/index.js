@@ -1,3 +1,5 @@
+console.log("JS carregado com sucesso");
+
 // ===== Reset vidas =====
 function reset() {
   ["p1", "p2", "p3", "p4"].forEach(id => {
@@ -47,6 +49,7 @@ function chooseWinner() {
 document.getElementById("diceBtn").addEventListener("click", rollDice);
 
 function rollDice() {
+  console.log("Dice clicado"); // teste
   const randomNumber = Math.floor(Math.random() * 6) + 1;
   const resultBox = document.createElement("div");
   resultBox.classList.add("result-box");
@@ -62,6 +65,7 @@ function rollDice() {
 document.getElementById("coinBtn").addEventListener("click", flipCoin);
 
 function flipCoin() {
+  console.log("Coin clicado"); // teste
   const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
   const resultBox = document.createElement("div");
   resultBox.classList.add("result-box");
