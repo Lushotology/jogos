@@ -30,79 +30,6 @@ body {
   overflow: visible;
 }
 
-/* ===== MENU LATERAL ===== */
-nav.menu-lateral {
-  width: 70px;              /* largura inicial */
-  height: 100vh;
-  background-color: #202020;
-  padding: 10px 0;
-  box-shadow: 3px 0 0 #ff0077;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  transition: width 0.3s ease, transform 0.3s ease;
-  z-index: 2000;
-}
-
-/* Desktop: expande no hover */
-@media (hover: hover) {
-  nav.menu-lateral:hover {
-    width: 250px;
-  }
-}
-
-/* Mobile: fechado por padrão */
-nav.menu-lateral.closed {
-  transform: translateX(-100%);
-}
-
-/* Mobile: aberto */
-nav.menu-lateral.open {
-  width: 250px;
-  transform: translateX(0);
-}
-
-.btn-expandir {
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.btn-expandir > i {
-  color: white;
-  font-size: 28px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li.item-menu {
-  transition: 0.2s;
-}
-
-ul li.item-menu:hover {
-  background-color: #ff0077;
-}
-
-ul li.item-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-ul li.item-menu a .icon > i {
-  font-size: 22px;
-}
-
 /* ===== PLAYERS ===== */
 p {
   line-height: 50%;
@@ -146,7 +73,7 @@ div#p4 {
   color: var(--cor01);
 }
 
-/* ===== BOTÕES ===== */
+/* ===== BOTÕES DE VIDA ===== */
 button {
   width: 100%;
   border: none;
@@ -234,10 +161,54 @@ button.life-increment {
   margin-top: 5px;
 }
 
+/* ===== MENU CENTRAL ===== */
+.menu-central {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  background-color: #202020;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  z-index: 3000;
+}
+
+.menu-central button {
+  background-color: #ff0077;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-central button:hover {
+  background-color: #e6006f;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media screen and (max-width: 765px) {
   body {
     grid-template-columns: 1fr; /* uma coluna em telas pequenas */
     grid-template-rows: repeat(4, 1fr);
+  }
+
+  .menu-central {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .menu-central button {
+    width: 100%;
+    justify-content: center;
   }
 }

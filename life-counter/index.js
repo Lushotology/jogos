@@ -20,10 +20,10 @@ function updateLife(playerId, change) {
 });
 
 // Botão Reset
-document.getElementById("reset").onclick = reset;
+document.getElementById("resetBtn").onclick = reset;
 
 // ===== Escolher vencedor =====
-document.getElementById("chooseWinner").addEventListener("click", chooseWinner);
+document.getElementById("startBtn").addEventListener("click", chooseWinner);
 
 function chooseWinner() {
   const playerIds = ["p1", "p2", "p3", "p4"];
@@ -44,7 +44,7 @@ function chooseWinner() {
 }
 
 // ===== Rolagem de dado =====
-document.getElementById("rollDiceButton").addEventListener("click", rollDice);
+document.getElementById("diceBtn").addEventListener("click", rollDice);
 
 function rollDice() {
   const randomNumber = Math.floor(Math.random() * 6) + 1;
@@ -59,7 +59,7 @@ function rollDice() {
 }
 
 // ===== Cara ou coroa =====
-document.getElementById("flipCoinButton").addEventListener("click", flipCoin);
+document.getElementById("coinBtn").addEventListener("click", flipCoin);
 
 function flipCoin() {
   const coinResult = Math.random() < 0.5 ? "Head" : "Tail";
@@ -87,12 +87,3 @@ function toggleCrown(buttonId) {
   let button = document.getElementById(buttonId);
   button.classList.add("colored");
 }
-
-// ===== Menu lateral (abrir/fechar por clique no celular) =====
-const menu = document.querySelector("nav.menu-lateral");
-const btnExpandir = document.querySelector(".btn-expandir");
-
-btnExpandir.onclick = () => {
-  menu.classList.toggle("open");
-  menu.classList.toggle("closed");
-};
