@@ -1,5 +1,3 @@
-7; //console.log('teste')
-
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -27,24 +25,21 @@ let yVelocidade = 0;
 let score = 0;
 
 const somStart = new Audio("ghost.MP3");
-
-const somComer = new Audio("som_comer.mp3"); //criei um som proprio
+const somComer = new Audio("som_comer.mp3");
 const somGameOver = new Audio("game_over.mp3");
 
 somStart.play();
 
-//loop do game
-
+// Loop principal
 function drawGame() {
   changeSnakePosition();
 
   let result = isGameOver();
   if (result) {
     return;
-  } //stop the game and reset
+  }
 
   clearScreen();
-
   drawSnake();
   drawApple();
   checkAppleColisao();
@@ -57,7 +52,6 @@ function drawGame() {
     speed = 15;
   }
 
-  //console.log('draw game')
   setTimeout(drawGame, 1000 / speed);
 }
 
@@ -68,20 +62,14 @@ function isGameOver() {
     return false;
   }
 
-  //paredes
-  if (headX < 0) {
-    gameOver = true;
-  } else if (headX === tileCount) {
-    gameOver = true;
-  } else if (headY < 0) {
-    gameOver = true;
-  } else if (headY === tileCount) {
+  // colisão com paredes
+  if (headX < 0 || headX === tileCount || headY < 0 || headY === tileCount) {
     gameOver = true;
   }
 
+  // colisão com o próprio corpo
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
-
     if (part.x === headX && part.y === headY) {
       gameOver = true;
       break;
@@ -92,20 +80,18 @@ function isGameOver() {
     ctx.fillStyle = "white";
     ctx.font = "40px Verdana";
 
-    if (gameOver) {
-      ctx.fillStyle = "white";
-      ctx.font = "40px Verdana";
+    var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "purple");
+    ctx.fillStyle = gradient;
 
-      var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0); //efeito de gradiante
-      gradient.addColorStop("0", " magenta");
-      gradient.addColorStop("0.5", "blue");
-      gradient.addColorStop("1.0", "purple");
-      // Fill with gradient
-      ctx.fillStyle = gradient;
+    ctx.fillText("FIM DE JOGO!", canvas.width / 6, canvas.height / 2);
+    somGameOver.play();
 
-      ctx.fillText("FIM DE JOGO!", canvas.width / 6, canvas.height / 2);
-      somGameOver.play();
-    }
+    // esconder setas e mostrar botão de restart
+    document.getElementById("controls").style.display = "none";
+    document.getElementById("restartContainer").style.display = "block";
   }
 
   return gameOver;
@@ -114,18 +100,17 @@ function isGameOver() {
 function drawScore() {
   ctx.fillStyle = "white";
   ctx.font = "11px Verdana";
-  ctx.fillText("Placar " + score, canvas.width - 50, 10); //posição do placar
+  ctx.fillText("Placar " + score, canvas.width - 50, 10);
 }
 
 function clearScreen() {
-  ctx.fillStyle = "black"; // function to clean the game//função pra limpar o jogo
+  ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawSnake() {
   ctx.fillStyle = "green";
   for (let i = 0; i < snakeParts.length; i++) {
-    //i changed the i = 0 to i =2 and works! // eu troquei o i = 0 pra i = 2 e deu certo, por enquanto
     let part = snakeParts[i];
     ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
   }
@@ -150,7 +135,7 @@ function drawApple() {
 }
 
 function checkAppleColisao() {
-  if (appleX === headX && appleY == headY) {
+  if (appleX === headX && appleY === headY) {
     appleX = Math.floor(Math.random() * tileCount);
     appleY = Math.floor(Math.random() * tileCount);
     tailLength++;
@@ -159,39 +144,33 @@ function checkAppleColisao() {
   }
 }
 
+// controles por teclado
 document.body.addEventListener("keydown", keyDown);
 
 function keyDown(event) {
-  //up
   if (event.keyCode == 38) {
     if (yVelocidade == 1) return;
-
     yVelocidade = -1;
     xVelocidade = 0;
   }
-  //down
   if (event.keyCode == 40) {
     if (yVelocidade == -1) return;
     yVelocidade = 1;
     xVelocidade = 0;
   }
-  //left
-
   if (event.keyCode == 37) {
     if (xVelocidade == 1) return;
-
     yVelocidade = 0;
     xVelocidade = -1;
   }
-  //right
   if (event.keyCode == 39) {
     if (xVelocidade == -1) return;
-
     yVelocidade = 0;
     xVelocidade = 1;
   }
 }
 
+// controles por botões (celular)
 function moveUp() {
   if (yVelocidade === 1) return;
   yVelocidade = -1;
@@ -215,4 +194,24 @@ function moveRight() {
   yVelocidade = 0;
   xVelocidade = 1;
 }
+
+// botão de reinício
+function restartGame() {
+  headX = 10;
+  headY = 10;
+  xVelocidade = 0;
+  yVelocidade = 0;
+  score = 0;
+  tailLength = 2;
+  snakeParts.length = 0;
+  appleX = Math.floor(Math.random() * tileCount);
+  appleY = Math.floor(Math.random() * tileCount);
+
+  // mostrar setas novamente e esconder botão
+  document.getElementById("controls").style.display = "block";
+  document.getElementById("restartContainer").style.display = "none";
+
+  drawGame();
+}
+
 drawGame();

@@ -38,3 +38,13 @@ h1 {
   color: white;
 }
 
+#restartBtn {
+  margin-top: 15px;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2e7d32;
+  color: white;
+}
+
