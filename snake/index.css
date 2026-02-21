@@ -1,6 +1,6 @@
 canvas {
-  background-color: rgb(0, 0, 0);
-  box-shadow: black 20px 10px 50px;
+  background-color: rgb(26, 6, 6);
+  box-shadow: rgb(17, 2, 2) 20px 10px 50px;
 }
 
 body {
@@ -11,12 +11,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fa968c;
+  background-color: #e7796f;
 }
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(to bottom, #7e2e27a2, transparent);
+  background-image: linear-gradient(to bottom, #7e3827a2, transparent);
   border-radius: 20px;
 }
 
