@@ -13,7 +13,7 @@ function updateLife(playerId, change) {
   let newValue = Math.max(0, value + change); // nunca abaixo de 0
   element.innerText = newValue;
 
-  // muda cor conforme ganho ou perda
+  // muda cor conforme ganho ou perda de vida
   if (change > 0) {
     element.style.color = "lime";   // verde ao ganhar
   } else {
@@ -43,7 +43,7 @@ function chooseWinner() {
   const randomPlayerId = playerIds[Math.floor(Math.random() * playerIds.length)];
   const winnerElement = document.getElementById(randomPlayerId);
 
-  // Remove mensagens antigas de TODOS os jogadores
+  // Remove mensagens antigas de TODOS os jogadores, assim corrige o erro de winnder
   document.querySelectorAll(".winner-message").forEach(msg => msg.remove());
 
   // Cria a nova mensagem
@@ -60,7 +60,7 @@ function chooseWinner() {
 
 //  Coroa de monarca (somente um ativo) 
 function toggleCrown(buttonId) {
-  // Remove coroa de todos os jogadores
+  // Remove coroa de todos os jogadores (ainda com bug)
   document.querySelectorAll(".crown-icon").forEach(btn => btn.classList.remove("colored"));
 
   // Ativa coroa apenas no jogador clicado
