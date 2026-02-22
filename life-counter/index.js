@@ -1,4 +1,4 @@
-// ===== Reset vidas =====
+//  Reset vidas 
 function reset() {
   ["p1", "p2", "p3", "p4"].forEach(id => {
     document.getElementById(id + "s").innerText = 40;
@@ -6,7 +6,7 @@ function reset() {
 }
 reset();
 
-// ===== Atualizar vida =====
+//  Atualizar vida 
 function updateLife(playerId, change) {
   let element = document.getElementById(playerId + "s");
   let value = parseInt(element.innerText);
@@ -32,10 +32,10 @@ function updateLife(playerId, change) {
   document.getElementById(id + "m").onclick = () => updateLife(id, -1);
 });
 
-// ===== Botão Reset =====
+//  Botão Reset 
 document.getElementById("resetBtn").onclick = reset;
 
-// ===== Escolher vencedor =====
+//  Escolher vencedor 
 document.getElementById("startBtn").addEventListener("click", chooseWinner);
 
 function chooseWinner() {
@@ -58,7 +58,7 @@ function chooseWinner() {
   }, 4000);
 }
 
-// ===== Coroa de monarca (somente um ativo) =====
+//  Coroa de monarca (somente um ativo) 
 function toggleCrown(buttonId) {
   // Remove coroa de todos os jogadores
   document.querySelectorAll(".crown-icon").forEach(btn => btn.classList.remove("colored"));

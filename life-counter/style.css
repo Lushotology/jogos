@@ -35,7 +35,7 @@ body {
   overflow: visible;
 }
 
-/* ===== PLAYERS ===== */
+/*  PLAYERS  */
 p {
   line-height: 50%;
   font-size: 13vmin;
@@ -78,7 +78,7 @@ div#p4 {
   color: var(--cor01);
 }
 
-/* ===== BOTÕES DE VIDA ===== */
+/*  BOTÕES DE VIDA  */
 button {
   width: 100%;
   border: none;
@@ -100,7 +100,7 @@ button.life-increment {
   font-size: 5vw;
 }
 
-/* ===== COROA ===== */
+/* = COROA  */
 .crown-icon img {
   width: 40px;
   height: 40px;
@@ -126,7 +126,7 @@ button.life-increment {
   opacity: 1;
 }
 
-/* ===== WINNER ===== */
+/*  WINNER  */
 .winner-message {
   color: rgb(247, 231, 19);
   font-size: 1em;
@@ -148,7 +148,7 @@ button.life-increment {
   animation: pulseAnim 1s ease infinite;
 }
 
-/* ===== RESULT BOX ===== */
+/*  RESULT BOX  */
 .result-box {
   position: fixed;
   top: 50%;
@@ -172,7 +172,7 @@ button.life-increment {
   z-index: 4000;
 }
 
-/* ===== MENU CENTRAL ===== */
+/*  MENU CENTRAL  */
 .menu-central {
   position: fixed;          /* sai do fluxo do grid */
   top: 50%;
@@ -184,7 +184,7 @@ button.life-increment {
   padding: 15px 25px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
-  z-index: 4000;            /* acima dos jogadores */
+  z-index: 4000;            /* acima dos jogadores, mas não funciona */
 }
 
 
@@ -206,7 +206,7 @@ button.life-increment {
   background-color: #e6006f;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/*  RESPONSIVIDADE  */
 @media screen and (max-width: 765px) {
   body {
     grid-template-columns: 1fr; /* uma coluna em telas pequenas */
