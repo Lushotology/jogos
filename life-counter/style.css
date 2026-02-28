@@ -30,9 +30,9 @@ body {
   grid-template-rows: repeat(2, 1fr);
   justify-content: center;
   align-items: stretch;
-  height: 80vh;
+  height: 100vh;
   margin: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /*  PLAYERS  */
